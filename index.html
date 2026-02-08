@@ -303,9 +303,34 @@ img { max-width: 100%; display: block; }
 .payment-icons { display: flex; gap: 0.5rem; }
 .payment-icons span { padding: 4px 8px; background: rgba(255,255,255,0.08); border-radius: 4px; font-size: 0.75rem; font-weight: 600; }
 
+/* ========== JOBS SECTION ========== */
+.jobs { padding: 4rem 1rem; background: linear-gradient(135deg, #1a1a2e 0%, var(--dark) 100%); color: #fff; position: relative; overflow: hidden; }
+.jobs::before { content: ''; position: absolute; top: -1px; left: 0; width: 100%; height: 60px; background: var(--bg); clip-path: polygon(0 0, 100% 0, 100% 40%, 85% 70%, 70% 40%, 55% 65%, 40% 35%, 25% 60%, 10% 30%, 0 55%); }
+.jobs-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; max-width: 1200px; margin: 0 auto; }
+.job-card { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: var(--radius-md); padding: 1.5rem; transition: all 0.3s var(--ease); }
+.job-card:hover { transform: translateY(-4px); border-color: var(--primary); box-shadow: 0 4px 20px rgba(0,180,166,0.2); }
+.job-card-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem; }
+.job-tag { font-size: 0.65rem; font-weight: 700; padding: 3px 10px; border-radius: var(--radius-full); text-transform: uppercase; letter-spacing: 0.08em; }
+.job-tag.full { background: var(--primary); color: #fff; }
+.job-tag.part { background: var(--accent); color: #fff; }
+.job-card h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem; }
+.job-card p { font-size: 0.85rem; opacity: 0.7; line-height: 1.6; margin-bottom: 1rem; }
+.job-details { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 1rem; }
+.job-detail { display: flex; align-items: center; gap: 0.4rem; font-size: 0.75rem; opacity: 0.6; }
+.job-detail i { color: var(--primary); font-size: 0.7rem; }
+.job-apply { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.6rem 1.5rem; background: var(--primary); color: #fff; font-weight: 700; font-size: 0.8rem; border-radius: var(--radius-full); transition: all 0.2s; border: none; cursor: pointer; }
+.job-apply:hover { background: var(--accent); transform: translateY(-2px); box-shadow: 0 4px 12px rgba(251,119,1,0.3); }
+.jobs-cta { text-align: center; margin-top: 2.5rem; }
+.jobs-cta p { font-size: 1rem; opacity: 0.8; margin-bottom: 1rem; }
+.btn-wa-apply { display: inline-flex; align-items: center; gap: 0.6rem; padding: 1rem 2.5rem; background: #25D366; color: #fff; font-weight: 800; font-size: 1rem; border-radius: var(--radius-full); transition: all 0.3s var(--ease); box-shadow: 0 4px 20px rgba(37,211,102,0.4); text-transform: uppercase; letter-spacing: 0.05em; }
+.btn-wa-apply:hover { transform: translateY(-3px) scale(1.05); box-shadow: 0 8px 30px rgba(37,211,102,0.5); }
+
 /* ========== FLOATING ELEMENTS ========== */
-.whatsapp-float { position: fixed; bottom: 24px; right: 24px; width: 56px; height: 56px; background: #25D366; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 1.5rem; z-index: 900; box-shadow: 0 4px 15px rgba(37,211,102,0.4); animation: waPulse 2s ease-in-out infinite; transition: transform 0.2s; }
+.whatsapp-float { position: fixed; bottom: 24px; right: 24px; width: 60px; height: 60px; background: #25D366; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 1.6rem; z-index: 900; box-shadow: 0 4px 15px rgba(37,211,102,0.4); animation: waPulse 2s ease-in-out infinite; transition: transform 0.2s; }
 .whatsapp-float:hover { transform: scale(1.1); }
+.wa-label { position: fixed; bottom: 32px; right: 92px; background: #fff; color: var(--dark); font-size: 0.8rem; font-weight: 700; padding: 0.5rem 1rem; border-radius: var(--radius-md); box-shadow: var(--shadow-md); z-index: 900; white-space: nowrap; animation: waLabelFade 4s ease-in-out infinite; }
+.wa-label::after { content: ''; position: absolute; top: 50%; right: -6px; transform: translateY(-50%); border: 6px solid transparent; border-left-color: #fff; }
+@keyframes waLabelFade { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
 @keyframes waPulse { 0% { box-shadow: 0 0 0 0 rgba(37,211,102,0.5); } 70% { box-shadow: 0 0 0 15px rgba(37,211,102,0); } 100% { box-shadow: 0 0 0 0 rgba(37,211,102,0); } }
 .back-top { position: fixed; bottom: 90px; right: 28px; width: 44px; height: 44px; background: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 1rem; z-index: 900; opacity: 0; transform: translateY(20px); transition: all 0.3s var(--ease); box-shadow: var(--shadow-sm); }
 .back-top.visible { opacity: 1; transform: translateY(0); }
@@ -354,8 +379,14 @@ img { max-width: 100%; display: block; }
     .why-us { padding: 2.5rem 0.75rem; }
     .filter-tabs { gap: 0.3rem; }
     .filter-tab { padding: 0.4rem 0.8rem; font-size: 0.75rem; }
-    .whatsapp-float { bottom: 16px; right: 16px; width: 52px; height: 52px; font-size: 1.4rem; }
-    .back-top { bottom: 78px; right: 18px; width: 40px; height: 40px; }
+    .whatsapp-float { bottom: 16px; right: 16px; width: 56px; height: 56px; font-size: 1.5rem; }
+    .wa-label { bottom: 24px; right: 82px; font-size: 0.7rem; padding: 0.4rem 0.8rem; }
+    .back-top { bottom: 82px; right: 18px; width: 40px; height: 40px; }
+    .jobs { padding: 3.5rem 0.75rem; }
+    .jobs-grid { grid-template-columns: 1fr; gap: 1rem; }
+    .job-card { padding: 1.2rem; }
+    .job-card h3 { font-size: 1rem; }
+    .btn-wa-apply { width: 100%; justify-content: center; padding: 0.9rem 1.5rem; font-size: 0.9rem; }
 }
 @media (max-width: 480px) {
     .header-main { gap: 0.4rem; padding: 0.6rem 0.5rem; }
@@ -504,6 +535,7 @@ img { max-width: 100%; display: block; }
         <a href="#flash-deals" class="mobile-link"><i class="fas fa-bolt"></i> Flash Deals</a>
         <a href="#bestsellers" class="mobile-link"><i class="fas fa-crown"></i> Best Sellers</a>
         <a href="#wholesale" class="mobile-link"><i class="fas fa-boxes-stacked"></i> Wholesale</a>
+        <a href="#careers" class="mobile-link"><i class="fas fa-briefcase"></i> Careers</a>
         <a href="#contact" class="mobile-link"><i class="fas fa-envelope"></i> Contact Us</a>
     </nav>
 </div>
@@ -662,6 +694,72 @@ img { max-width: 100%; display: block; }
     </div>
 </section>
 
+<!-- JOBS / CAREERS -->
+<section class="jobs sr" id="careers">
+    <h2 class="section-title" style="color:#fff;">Join Our Team</h2>
+    <p class="section-sub" style="color:rgba(255,255,255,0.6);">We're growing! Be part of Negril's biggest fashion family</p>
+    <div class="jobs-grid">
+        <div class="job-card">
+            <div class="job-card-header">
+                <span class="job-tag full">Full-Time</span>
+                <i class="fas fa-fire" style="color:var(--accent);"></i>
+            </div>
+            <h3>Sales Associate</h3>
+            <p>Help customers find their perfect style. You'll assist with product selection, handle transactions, and keep the store looking fresh.</p>
+            <div class="job-details">
+                <span class="job-detail"><i class="fas fa-location-dot"></i> Negril Store</span>
+                <span class="job-detail"><i class="fas fa-clock"></i> Mon-Sat</span>
+                <span class="job-detail"><i class="fas fa-dollar-sign"></i> Competitive Pay</span>
+            </div>
+            <a href="https://wa.me/18765550876?text=Hi%20I'm%20interested%20in%20the%20Sales%20Associate%20position" class="job-apply" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> Apply via WhatsApp</a>
+        </div>
+        <div class="job-card">
+            <div class="job-card-header">
+                <span class="job-tag full">Full-Time</span>
+                <i class="fas fa-star" style="color:var(--gold);"></i>
+            </div>
+            <h3>Store Manager</h3>
+            <p>Lead our team, manage inventory, handle wholesale clients, and drive sales growth. Experience in retail management required.</p>
+            <div class="job-details">
+                <span class="job-detail"><i class="fas fa-location-dot"></i> Negril Store</span>
+                <span class="job-detail"><i class="fas fa-clock"></i> Full-Time</span>
+                <span class="job-detail"><i class="fas fa-chart-line"></i> Growth Opportunity</span>
+            </div>
+            <a href="https://wa.me/18765550876?text=Hi%20I'm%20interested%20in%20the%20Store%20Manager%20position" class="job-apply" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> Apply via WhatsApp</a>
+        </div>
+        <div class="job-card">
+            <div class="job-card-header">
+                <span class="job-tag part">Part-Time</span>
+            </div>
+            <h3>Inventory / Stock Clerk</h3>
+            <p>Organize incoming wholesale shipments, manage stock levels, and keep the store shelves fully stocked and organized.</p>
+            <div class="job-details">
+                <span class="job-detail"><i class="fas fa-location-dot"></i> Negril Store</span>
+                <span class="job-detail"><i class="fas fa-clock"></i> Flexible Hours</span>
+                <span class="job-detail"><i class="fas fa-box"></i> Hands-On Work</span>
+            </div>
+            <a href="https://wa.me/18765550876?text=Hi%20I'm%20interested%20in%20the%20Inventory%20Clerk%20position" class="job-apply" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> Apply via WhatsApp</a>
+        </div>
+        <div class="job-card">
+            <div class="job-card-header">
+                <span class="job-tag part">Part-Time</span>
+            </div>
+            <h3>Delivery Driver</h3>
+            <p>Deliver orders across Negril and surrounding areas. Must have valid driver's license and own transportation.</p>
+            <div class="job-details">
+                <span class="job-detail"><i class="fas fa-location-dot"></i> Negril Area</span>
+                <span class="job-detail"><i class="fas fa-truck"></i> Own Vehicle</span>
+                <span class="job-detail"><i class="fas fa-id-card"></i> Valid License</span>
+            </div>
+            <a href="https://wa.me/18765550876?text=Hi%20I'm%20interested%20in%20the%20Delivery%20Driver%20position" class="job-apply" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> Apply via WhatsApp</a>
+        </div>
+    </div>
+    <div class="jobs-cta">
+        <p>Don't see your role? We're always looking for talented people!</p>
+        <a href="https://wa.me/18765550876?text=Hi%20I'm%20interested%20in%20working%20at%20876%20Temu%20Fashion" class="btn-wa-apply" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> Message Us on WhatsApp</a>
+    </div>
+</section>
+
 <!-- NEWSLETTER -->
 <section class="newsletter">
     <div class="bubble b1"></div>
@@ -749,7 +847,8 @@ img { max-width: 100%; display: block; }
 </footer>
 
 <!-- FLOATING ELEMENTS -->
-<a href="https://wa.me/18765550876" class="whatsapp-float" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i></a>
+<span class="wa-label">Chat with us!</span>
+<a href="https://wa.me/18765550876?text=Hi%20I'm%20interested%20in%20your%20products%20at%20876%20Temu%20Fashion" class="whatsapp-float" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i></a>
 <button class="back-top" id="backTop" onclick="window.scrollTo({top:0})"><i class="fas fa-chevron-up"></i></button>
 
 <!-- JAVASCRIPT -->
