@@ -432,6 +432,25 @@
             border-radius: 2px;
         }
 
+        /* Print / PDF */
+        @media print {
+            body { background: var(--dark) !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            .hero { page-break-after: avoid; }
+            .store-info { page-break-inside: avoid; }
+            .section-dark { page-break-inside: avoid; }
+            .stats { page-break-inside: avoid; }
+            .stat { page-break-inside: avoid; }
+            .price-section { page-break-inside: avoid; page-break-before: auto; }
+            .checklist { page-break-before: always; }
+            .check-item { page-break-inside: avoid; }
+            .renewal { page-break-inside: avoid; }
+            .why-section { page-break-inside: avoid; }
+            .why-item { page-break-inside: avoid; }
+            .cta-section { page-break-inside: avoid; }
+            .proposal-footer { page-break-inside: avoid; }
+            .benefit { page-break-inside: avoid; }
+        }
+
         /* Mobile */
         @media (max-width: 480px) {
             .hero { padding: 2.5rem 1rem 2rem; }
