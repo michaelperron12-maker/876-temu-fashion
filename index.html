@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#00B4A6">
+    <meta name="description" content="876 Temu Fashion - Negril Jamaica's #1 Wholesale & Retail Fashion Store. Shop clothing, lingerie, accessories & more at unbeatable prices.">
+    <meta property="og:title" content="876 TEMU FASHION | Wholesale & Retail - Negril, Jamaica">
+    <meta property="og:description" content="Your one-stop fashion destination in Negril. Wholesale & retail clothing, accessories, lingerie and more.">
+    <title>876 TEMU FASHION | Wholesale & Retail Fashion Store - Negril, Jamaica</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+/* ========== CSS RESET & VARIABLES ========== */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+    --primary: #00B4A6; --primary-dark: #009688; --primary-light: #4dd9cb;
+    --accent: #FB7701; --accent-dark: #E06800; --accent-light: #FF9B3D;
+    --coral: #FF6B6B; --gold: #F0C040; --gold-dark: #D4A843;
+    --ocean: #006994; --sale-red: #E63946; --palm: #2d8659;
+    --bg: #FFFFFF; --bg-warm: #fefcf8; --bg-sand: #faf5ee;
+    --dark: #222222; --gray-700: #444; --gray-500: #777; --gray-300: #ccc; --gray-100: #f4f4f4;
+    --font: 'Poppins', sans-serif; --font-mono: 'JetBrains Mono', monospace;
+    --shadow-sm: 0 2px 8px rgba(0,0,0,0.08); --shadow-md: 0 4px 16px rgba(0,0,0,0.12);
+    --shadow-lg: 0 8px 32px rgba(0,0,0,0.16);
+    --ease: cubic-bezier(0.16,1,0.3,1); --ease-spring: cubic-bezier(0.175,0.885,0.32,1.275);
+    --radius-sm: 6px; --radius-md: 12px; --radius-lg: 20px; --radius-full: 9999px;
+}
+html { scroll-behavior: smooth; }
+body { font-family: var(--font); color: var(--dark); background: var(--bg); line-height: 1.6; overflow-x: hidden; }
+a { text-decoration: none; color: inherit; }
+button { font-family: var(--font); cursor: pointer; border: none; }
+img { max-width: 100%; display: block; }
+.container { max-width: 1200px; margin: 0 auto; padding: 0 1rem; }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; } html { scroll-behavior: auto; } }
+
+/* ========== ANNOUNCEMENT BAR ========== */
+.announce { background: linear-gradient(90deg, var(--primary), var(--ocean), var(--accent), var(--coral), var(--primary)); background-size: 200% 100%; animation: promoBg 6s linear infinite; padding: 8px 0; overflow: hidden; position: relative; z-index: 1001; }
+@keyframes promoBg { to { background-position: 200% 50%; } }
+.announce-track { display: flex; animation: marquee 20s linear infinite; white-space: nowrap; }
+.announce-item { display: inline-flex; align-items: center; gap: 2rem; padding: 0 3rem; color: #fff; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.03em; }
+.announce-item i { font-size: 0.7rem; }
+@keyframes marquee { to { transform: translateX(-50%); } }
+
+/* ========== HEADER ========== */
+.header { position: sticky; top: 0; z-index: 1000; background: rgba(255,255,255,0.95); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); transition: box-shadow 0.3s var(--ease); }
+.header.scrolled { box-shadow: var(--shadow-md); }
+.header-main { display: flex; align-items: center; gap: 1rem; padding: 0.85rem 1rem 1.1rem; max-width: 1200px; margin: 0 auto; }
+/* Logo — Temu logo icon + 876 + store sign style */
+.logo { display: flex; align-items: center; gap: 8px; flex-shrink: 0; transition: all 0.3s var(--ease); position: relative; }
+.logo:hover { transform: scale(1.03); }
+.logo-icon { width: 42px; height: 42px; border-radius: var(--radius-md); object-fit: cover; box-shadow: 0 2px 8px rgba(251,119,1,0.3); }
+.logo-main { display: flex; align-items: center; gap: 0; background: linear-gradient(135deg, #3CBCAD 0%, #2AA89A 100%); border-radius: var(--radius-md); padding: 0.35rem 0.8rem; box-shadow: 0 2px 10px rgba(60,188,173,0.3); }
+.logo-876 { font-size: 1.5rem; font-weight: 900; color: #fff; letter-spacing: -0.02em; line-height: 1; margin-right: 6px; text-shadow: 1px 1px 3px rgba(0,0,0,0.15); }
+.logo-divider { width: 2px; height: 26px; background: rgba(255,255,255,0.35); margin: 0 7px; flex-shrink: 0; border-radius: 1px; }
+.logo-text { display: flex; flex-direction: column; line-height: 1; }
+.logo-temu { font-size: 1rem; font-weight: 800; color: #fff; letter-spacing: 0.1em; text-transform: uppercase; }
+.logo-fashion { font-size: 0.5rem; font-weight: 600; color: var(--accent-light); letter-spacing: 0.2em; text-transform: uppercase; margin-top: 2px; }
+.search-bar { flex: 1; max-width: 500px; display: flex; align-items: center; background: var(--gray-100); border-radius: var(--radius-full); padding: 0.5rem 1rem; gap: 0.5rem; border: 2px solid transparent; transition: border-color 0.3s; }
+.search-bar:focus-within { border-color: var(--primary); background: #fff; }
+.search-bar input { flex: 1; border: none; background: none; outline: none; font-size: 0.85rem; font-family: var(--font); }
+.search-bar button { background: none; color: var(--gray-500); font-size: 1rem; padding: 0; }
+.header-icons { display: flex; gap: 1rem; align-items: center; flex-shrink: 0; }
+.header-icon { position: relative; font-size: 1.2rem; color: var(--dark); background: none; padding: 6px; transition: color 0.2s; }
+.header-icon:hover { color: var(--primary); }
+.header-icon .badge-count { position: absolute; top: -2px; right: -4px; background: var(--accent); color: #fff; font-size: 0.6rem; font-weight: 700; width: 16px; height: 16px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+.menu-toggle { display: none; flex-direction: column; gap: 5px; width: 32px; height: 32px; justify-content: center; background: none; padding: 4px; }
+.menu-toggle span { display: block; width: 100%; height: 2.5px; background: var(--dark); border-radius: 2px; transition: all 0.3s var(--ease); transform-origin: center; }
+.menu-toggle.active span:nth-child(1) { transform: translateY(7.5px) rotate(45deg); }
+.menu-toggle.active span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.menu-toggle.active span:nth-child(3) { transform: translateY(-7.5px) rotate(-45deg); }
+
+/* Category bar */
+.cat-bar { border-top: 1px solid var(--gray-100); overflow-x: auto; scrollbar-width: none; }
+.cat-bar::-webkit-scrollbar { display: none; }
+.cat-pills { display: flex; gap: 0.5rem; padding: 0.6rem 1rem; max-width: 1200px; margin: 0 auto; }
+.cat-pill { white-space: nowrap; padding: 0.4rem 1rem; font-size: 0.8rem; font-weight: 600; border-radius: var(--radius-full); background: none; color: var(--gray-500); transition: all 0.2s; border: 1.5px solid transparent; }
+.cat-pill:hover, .cat-pill.active { color: var(--primary); background: rgba(0,180,166,0.08); border-color: var(--primary); }
+
+/* Mobile menu */
+.mobile-backdrop { position: fixed; inset: 0; background: rgba(0,0,0,0.4); backdrop-filter: blur(8px); opacity: 0; visibility: hidden; z-index: 998; transition: all 0.35s var(--ease); }
+.mobile-backdrop.open { opacity: 1; visibility: visible; }
+.mobile-menu { position: fixed; top: 0; right: 0; width: min(85vw, 380px); height: 100dvh; background: var(--bg); z-index: 999; transform: translateX(100%); transition: transform 0.4s var(--ease); display: flex; flex-direction: column; box-shadow: -8px 0 30px rgba(0,0,0,0.15); overflow-y: auto; }
+.mobile-menu.open { transform: translateX(0); }
+.mobile-menu-header { padding: 2rem 1.5rem; background: linear-gradient(135deg, var(--primary), var(--ocean)); color: #fff; position: relative; }
+.mobile-menu-header::after { content: ''; position: absolute; bottom: -1px; left: 0; width: 100%; height: 25px; background: var(--bg); clip-path: ellipse(55% 100% at 50% 100%); }
+.mobile-menu-header h3 { font-size: 1.2rem; font-weight: 800; }
+.mobile-menu-header p { font-size: 0.8rem; opacity: 0.8; }
+.mobile-nav { padding: 1.5rem; flex: 1; }
+.mobile-link { display: flex; align-items: center; gap: 1rem; padding: 1rem 0.5rem; font-size: 1rem; font-weight: 600; color: var(--dark); border-bottom: 1px solid var(--gray-100); transition: all 0.2s; }
+.mobile-link:hover { color: var(--primary); padding-left: 1rem; }
+.mobile-link i { width: 24px; text-align: center; color: var(--primary); }
+
+/* ========== HERO ========== */
+.hero { position: relative; min-height: 100vh; display: flex; align-items: center; justify-content: center; overflow: hidden; background: url('store-front.jpg') center/cover no-repeat; }
+.hero-overlay { position: absolute; inset: 0; background: linear-gradient(135deg, rgba(0,105,148,0.85) 0%, rgba(0,180,166,0.7) 30%, rgba(0,0,0,0.6) 60%, rgba(251,119,1,0.4) 100%); z-index: 1; }
+.hero::before { content: ''; position: absolute; bottom: -2px; left: 0; width: 100%; height: 100px; background: var(--bg); clip-path: polygon(0% 60%, 5% 55%, 10% 52%, 15% 50%, 20% 52%, 25% 56%, 30% 58%, 35% 55%, 40% 50%, 45% 48%, 50% 50%, 55% 55%, 60% 58%, 65% 56%, 70% 52%, 75% 48%, 80% 50%, 85% 55%, 90% 58%, 95% 55%, 100% 50%, 100% 100%, 0% 100%); z-index: 4; }
+.hero-content { position: relative; z-index: 3; text-align: center; color: #fff; padding: 2rem; max-width: 1000px; }
+.hero-badge { display: inline-block; padding: 0.6rem 2rem; border: 2px solid var(--gold); border-radius: var(--radius-full); font-size: 0.85rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 2rem; background: rgba(0,0,0,0.3); backdrop-filter: blur(6px); color: var(--gold); }
+.hero h1 { font-size: clamp(3.5rem, 10vw, 7rem); font-weight: 900; line-height: 0.95; text-shadow: 0 4px 30px rgba(0,0,0,0.5); margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: -0.02em; }
+.hero h1 .accent { color: var(--accent); display: block; }
+.hero h1 .teal { color: var(--primary-light); }
+.hero-slogan { font-size: clamp(1.2rem, 3vw, 2rem); font-weight: 700; text-shadow: 0 2px 15px rgba(0,0,0,0.4); margin-bottom: 0.5rem; letter-spacing: 0.05em; color: var(--gold); font-style: italic; }
+.hero p { font-size: clamp(1rem, 2.5vw, 1.4rem); text-shadow: 0 2px 12px rgba(0,0,0,0.4); margin-bottom: 2.5rem; opacity: 0.9; font-weight: 500; }
+.hero-ctas { display: flex; gap: 1.2rem; justify-content: center; flex-wrap: wrap; }
+.btn-hero { display: inline-flex; align-items: center; gap: 0.6rem; padding: 1.2rem 3rem; font-size: 1.1rem; font-weight: 800; border-radius: var(--radius-full); transition: all 0.3s var(--ease); text-transform: uppercase; letter-spacing: 0.08em; }
+.btn-hero.primary { background: var(--accent); color: #fff; box-shadow: 0 6px 25px rgba(251,119,1,0.5); }
+.btn-hero.primary:hover { transform: translateY(-4px) scale(1.05); box-shadow: 0 10px 35px rgba(251,119,1,0.6); background: var(--accent-dark); }
+.btn-hero.outline { background: rgba(255,255,255,0.1); color: #fff; border: 3px solid #fff; backdrop-filter: blur(4px); }
+.btn-hero.outline:hover { background: #fff; color: var(--dark); transform: translateY(-4px) scale(1.05); }
+.hero-trust { display: flex; gap: 2.5rem; justify-content: center; margin-top: 2.5rem; font-size: 0.9rem; font-weight: 600; opacity: 0.9; flex-wrap: wrap; }
+.hero-trust span { background: rgba(0,0,0,0.25); padding: 0.4rem 1rem; border-radius: var(--radius-full); backdrop-filter: blur(4px); }
+.hero-trust span i { margin-right: 0.4rem; color: var(--gold); }
+/* Store photo section */
+.store-showcase { position: relative; background: var(--dark); padding: 4rem 1rem; overflow: hidden; }
+.store-showcase::before { content: ''; position: absolute; inset: 0; background: url('store-night.jpg') center/cover no-repeat; opacity: 0.2; }
+.store-showcase-content { position: relative; z-index: 2; max-width: 1200px; margin: 0 auto; display: flex; align-items: center; gap: 3rem; flex-wrap: wrap; }
+.store-photo { flex: 1; min-width: 300px; border-radius: var(--radius-lg); overflow: hidden; box-shadow: 0 8px 40px rgba(0,0,0,0.4); }
+.store-photo img { width: 100%; display: block; }
+.store-info { flex: 1; min-width: 280px; color: #fff; }
+.store-info h2 { font-size: clamp(2rem, 4vw, 3rem); font-weight: 900; margin-bottom: 1rem; text-transform: uppercase; }
+.store-info h2 .gold { color: var(--gold); }
+.store-info p { font-size: 1.1rem; line-height: 1.8; opacity: 0.85; margin-bottom: 1.5rem; }
+.store-info .store-tag { display: inline-block; padding: 0.5rem 1.5rem; background: var(--primary); color: #fff; font-weight: 700; font-size: 0.85rem; border-radius: var(--radius-full); letter-spacing: 0.08em; }
+
+/* ========== FLASH DEALS ========== */
+.flash { background: linear-gradient(135deg, var(--dark) 0%, #1a1a2e 100%); padding: 3rem 1rem; position: relative; overflow: hidden; }
+.flash::before { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: conic-gradient(from 0deg at 50% 50%, transparent 0deg, rgba(251,119,1,0.08) 60deg, transparent 120deg, rgba(255,107,107,0.06) 180deg, transparent 240deg, rgba(0,180,166,0.08) 300deg, transparent 360deg); animation: flashRotate 20s linear infinite; }
+@keyframes flashRotate { to { transform: rotate(360deg); } }
+.flash-header { position: relative; z-index: 2; display: flex; align-items: center; justify-content: center; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap; }
+.flash-bolt { display: inline-block; width: 24px; height: 24px; background: var(--gold); clip-path: polygon(50% 0%, 65% 35%, 100% 35%, 45% 60%, 65% 100%, 30% 55%, 0% 55%); animation: boltPulse 1.5s ease-in-out infinite; }
+@keyframes boltPulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.2); filter: brightness(1.3); } }
+.flash-title { font-size: 1.5rem; font-weight: 800; color: #fff; text-transform: uppercase; letter-spacing: 0.05em; }
+.countdown { display: flex; align-items: center; gap: 6px; }
+.cd-block { display: flex; flex-direction: column; align-items: center; gap: 2px; }
+.cd-num { font-family: var(--font-mono); font-size: 1.8rem; font-weight: 700; color: #fff; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); border-radius: var(--radius-sm); padding: 0.4rem 0.7rem; min-width: 60px; text-align: center; }
+.cd-label { font-size: 0.6rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(255,255,255,0.5); }
+.cd-sep { font-size: 1.5rem; font-weight: 700; color: var(--accent); animation: blink 1s steps(1) infinite; margin-top: -16px; }
+@keyframes blink { 0%, 49% { opacity: 1; } 50%, 100% { opacity: 0.2; } }
+.flash-scroll { position: relative; z-index: 2; display: flex; gap: 1rem; overflow-x: auto; scroll-snap-type: x mandatory; padding: 1rem 0.5rem; scrollbar-width: none; }
+.flash-scroll::-webkit-scrollbar { display: none; }
+.deal-card { flex: 0 0 200px; scroll-snap-align: start; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: var(--radius-md); overflow: hidden; transition: all 0.3s var(--ease); }
+.deal-card:hover { transform: translateY(-4px); border-color: var(--accent); box-shadow: 0 4px 20px rgba(251,119,1,0.2); }
+.deal-img { aspect-ratio: 1; position: relative; overflow: hidden; }
+.deal-badge { position: absolute; top: 8px; right: 8px; background: var(--sale-red); color: #fff; font-size: 0.7rem; font-weight: 800; padding: 3px 8px; border-radius: var(--radius-sm); }
+.deal-info { padding: 0.75rem; }
+.deal-name { font-size: 0.8rem; font-weight: 500; color: rgba(255,255,255,0.8); margin-bottom: 0.5rem; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.deal-prices { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem; }
+.deal-price { font-size: 1rem; font-weight: 700; color: var(--accent); }
+.deal-old { font-size: 0.75rem; color: rgba(255,255,255,0.4); text-decoration: line-through; }
+.deal-progress { height: 4px; background: rgba(255,255,255,0.1); border-radius: var(--radius-full); overflow: hidden; margin-bottom: 4px; }
+.deal-progress-fill { height: 100%; background: linear-gradient(90deg, var(--coral), var(--accent)); border-radius: var(--radius-full); }
+.deal-claimed { font-size: 0.65rem; color: var(--coral); font-weight: 600; }
+
+/* ========== CATEGORIES ========== */
+.categories { padding: 4rem 1rem; background: var(--bg-warm); }
+.section-title { text-align: center; font-size: clamp(2rem, 5vw, 3rem); font-weight: 900; margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.02em; }
+.section-title::after { content: ''; display: block; width: 80px; height: 4px; background: linear-gradient(90deg, var(--primary), var(--accent)); margin: 14px auto 0; border-radius: 2px; }
+.section-sub { text-align: center; color: var(--gray-500); font-size: 1.05rem; margin-bottom: 2.5rem; }
+.cat-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; max-width: 1200px; margin: 0 auto; }
+.cat-card { position: relative; aspect-ratio: 4/5; border-radius: var(--radius-lg); overflow: hidden; display: flex; flex-direction: column; align-items: center; justify-content: center; color: #fff; transition: all 0.3s var(--ease); cursor: pointer; }
+.cat-card:hover { transform: translateY(-6px) scale(1.03); box-shadow: var(--shadow-lg); }
+.cat-card::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 20% 80%, rgba(255,255,255,0.15) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(255,255,255,0.1) 0%, transparent 40%); }
+.cat-card--women { background: linear-gradient(145deg, #ff758c, #ff7eb3, #feb47b); }
+.cat-card--men { background: linear-gradient(145deg, #006994, #00B4A6, #4dd9cb); }
+.cat-card--kids { background: linear-gradient(145deg, #f0c040, #fb7701, #ff6b6b); }
+.cat-card--lingerie { background: linear-gradient(145deg, #ec407a, #ff7eb3, #feb47b); }
+.cat-card--accessories { background: linear-gradient(145deg, #2d8659, #4dd9cb, #87ceeb); }
+.cat-card--shoes { background: linear-gradient(145deg, #d4a843, #f0c040, #feb47b); }
+.cat-card--swim { background: linear-gradient(145deg, #00B4A6, #87ceeb, #ff7eb3); }
+.cat-card--wholesale { background: linear-gradient(145deg, #006994, #00B4A6, #4dd9cb); }
+.cat-icon { font-size: 2.5rem; margin-bottom: 0.5rem; filter: drop-shadow(0 2px 6px rgba(0,0,0,0.15)); transition: transform 0.3s var(--ease); position: relative; z-index: 1; }
+.cat-card:hover .cat-icon { transform: scale(1.15) rotate(-5deg); }
+.cat-label { font-size: 0.9rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; text-shadow: 0 1px 6px rgba(0,0,0,0.2); position: relative; z-index: 1; }
+.cat-count { font-size: 0.7rem; opacity: 0.8; margin-top: 4px; position: relative; z-index: 1; }
+
+/* ========== PRODUCT CARDS ========== */
+.products { padding: 4rem 1rem; }
+.filter-tabs { display: flex; gap: 0.5rem; justify-content: center; margin-bottom: 2rem; flex-wrap: wrap; }
+.filter-tab { padding: 0.5rem 1.2rem; font-size: 0.85rem; font-weight: 600; background: none; color: var(--gray-500); border-radius: var(--radius-full); border: 1.5px solid transparent; transition: all 0.2s; }
+.filter-tab:hover, .filter-tab.active { color: var(--primary); background: rgba(0,180,166,0.08); border-color: var(--primary); }
+.product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1.25rem; max-width: 1200px; margin: 0 auto; }
+.p-card { background: var(--bg); border-radius: var(--radius-md); overflow: hidden; box-shadow: var(--shadow-sm); transition: all 0.3s var(--ease); cursor: pointer; position: relative; }
+.p-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
+.p-card-img { aspect-ratio: 3/4; overflow: hidden; position: relative; }
+.p-card-img .placeholder { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; transition: transform 0.5s var(--ease); }
+.p-card:hover .placeholder { transform: scale(1.08); }
+/* Placeholder patterns */
+.ph-palms { background: repeating-linear-gradient(-45deg, rgba(45,134,89,0.08) 0px, rgba(45,134,89,0.08) 2px, transparent 2px, transparent 12px), repeating-linear-gradient(45deg, rgba(0,180,166,0.06) 0px, rgba(0,180,166,0.06) 2px, transparent 2px, transparent 16px), linear-gradient(135deg, #f0faf8, #e8f5e9); }
+.ph-waves { background: repeating-radial-gradient(ellipse 100% 40px at 50% 0%, transparent 0px, transparent 18px, rgba(0,180,166,0.06) 18px, rgba(0,180,166,0.06) 20px), linear-gradient(180deg, #f0f9ff, #e6f7f7); }
+.ph-sunset { background: repeating-conic-gradient(rgba(251,119,1,0.05) 0% 25%, transparent 0% 50%) 0 0 / 30px 30px, linear-gradient(135deg, #fff9f0, #fff0e0); }
+.ph-dots { background: radial-gradient(circle 4px at 15px 15px, rgba(0,180,166,0.1) 100%, transparent 100%), radial-gradient(circle 3px at 30px 30px, rgba(251,119,1,0.08) 100%, transparent 100%); background-size: 40px 40px; background-color: #fafcfb; }
+.ph-hibiscus { background: repeating-conic-gradient(from 0deg at 50% 50%, rgba(255,107,107,0.04) 0deg 30deg, transparent 30deg 60deg), radial-gradient(ellipse at center, rgba(255,126,179,0.06) 0%, transparent 70%), linear-gradient(135deg, #fff5f5, #fff0f5); }
+/* Silhouettes */
+.sil { position: absolute; width: 55%; height: 60%; top: 20%; left: 22%; opacity: 0.1; transition: opacity 0.3s; }
+.p-card:hover .sil { opacity: 0.16; }
+.sil-dress { background: var(--coral); clip-path: polygon(35% 0%, 65% 0%, 65% 5%, 70% 10%, 60% 15%, 60% 35%, 80% 100%, 20% 100%, 40% 35%, 40% 15%, 30% 10%, 35% 5%); }
+.sil-shirt { background: var(--primary); clip-path: polygon(30% 0%, 70% 0%, 70% 8%, 85% 8%, 100% 25%, 82% 30%, 82% 100%, 18% 100%, 18% 30%, 0% 25%, 15% 8%, 30% 8%); }
+.sil-pants { background: var(--ocean); clip-path: polygon(15% 0%, 85% 0%, 85% 5%, 88% 10%, 88% 45%, 95% 100%, 55% 100%, 55% 50%, 45% 50%, 45% 100%, 5% 100%, 12% 45%, 12% 10%, 15% 5%); }
+.sil-bag { background: var(--gold-dark); clip-path: polygon(35% 0%, 38% 15%, 65% 15%, 62% 0%, 65% 15%, 90% 20%, 95% 95%, 5% 95%, 10% 20%, 38% 15%); }
+.sil-shoe { background: var(--accent); clip-path: polygon(5% 50%, 15% 30%, 35% 25%, 50% 30%, 60% 20%, 75% 15%, 90% 20%, 95% 35%, 95% 55%, 90% 70%, 85% 75%, 10% 75%, 5% 65%); }
+/* Badges */
+.p-badge { position: absolute; top: 10px; left: 10px; padding: 3px 10px; font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; border-radius: var(--radius-sm); z-index: 5; color: #fff; }
+.p-badge.new { background: var(--primary); }
+.p-badge.sale { background: var(--sale-red); animation: badgePulse 2s ease-in-out infinite; }
+.p-badge.hot { background: linear-gradient(135deg, #ff6b6b, #fb7701, #f0c040); position: relative; overflow: hidden; }
+.p-badge.hot::after { content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent); animation: hotShimmer 2.5s ease-in-out infinite; }
+@keyframes hotShimmer { 0% { left: -100%; } 60%, 100% { left: 100%; } }
+@keyframes badgePulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
+.p-badge.disc { position: absolute; top: 10px; right: 10px; left: auto; background: var(--accent); font-size: 0.7rem; font-weight: 800; padding: 4px 8px; }
+.p-wishlist { position: absolute; top: 10px; right: 10px; width: 34px; height: 34px; border-radius: 50%; background: rgba(255,255,255,0.85); backdrop-filter: blur(4px); display: flex; align-items: center; justify-content: center; font-size: 0.9rem; color: var(--gray-300); z-index: 5; opacity: 0; transform: scale(0.8); transition: all 0.3s var(--ease); }
+.p-card:hover .p-wishlist { opacity: 1; transform: scale(1); }
+.p-wishlist:hover { background: var(--coral); color: #fff; transform: scale(1.1) !important; }
+.p-wishlist.liked { color: var(--coral); opacity: 1; transform: scale(1); }
+.p-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,180,166,0.85) 0%, rgba(0,180,166,0.3) 40%, transparent 100%); display: flex; align-items: flex-end; justify-content: center; padding: 1rem; opacity: 0; transition: opacity 0.3s var(--ease); }
+.p-card:hover .p-overlay { opacity: 1; }
+.p-quick { padding: 0.6rem 1.2rem; background: #fff; color: var(--primary-dark); font-weight: 600; font-size: 0.8rem; border-radius: var(--radius-full); transform: translateY(15px); opacity: 0; transition: all 0.3s var(--ease) 0.1s; }
+.p-card:hover .p-quick { transform: translateY(0); opacity: 1; }
+.p-quick:hover { background: var(--accent); color: #fff; }
+.p-info { padding: 0.85rem; }
+.p-brand { font-size: 0.65rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--primary); margin-bottom: 3px; }
+.p-name { font-size: 0.85rem; font-weight: 500; line-height: 1.3; margin-bottom: 6px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.p-stars { display: flex; align-items: center; gap: 3px; margin-bottom: 6px; }
+.p-stars i { font-size: 0.7rem; color: var(--gold); }
+.p-stars i.empty { color: var(--gray-300); }
+.p-stars span { font-size: 0.7rem; color: var(--gray-500); margin-left: 3px; }
+.p-price-row { display: flex; align-items: center; gap: 0.5rem; }
+.p-price { font-size: 1.1rem; font-weight: 700; color: var(--accent); }
+.p-old { font-size: 0.8rem; color: var(--gray-500); text-decoration: line-through; }
+.p-disc { font-size: 0.7rem; font-weight: 700; color: var(--sale-red); background: rgba(230,57,70,0.1); padding: 2px 6px; border-radius: 3px; }
+.p-cart-btn { display: block; width: 100%; padding: 0.65rem; background: var(--primary); color: #fff; font-weight: 600; font-size: 0.8rem; text-align: center; transform: translateY(100%); transition: all 0.3s var(--ease); }
+.p-card:hover .p-cart-btn { transform: translateY(0); }
+.p-cart-btn:hover { background: var(--primary-dark); }
+
+/* ========== PROMO BANNER ========== */
+.promo { background: linear-gradient(135deg, var(--accent), var(--coral)); padding: 4rem 1rem; position: relative; overflow: hidden; }
+.promo::before { content: ''; position: absolute; top: -30px; right: -30px; width: 250px; height: 250px; border-radius: 50%; background: rgba(255,255,255,0.08); }
+.promo::after { content: ''; position: absolute; bottom: -50px; left: -50px; width: 200px; height: 200px; border-radius: 50%; background: rgba(255,255,255,0.06); }
+.promo-content { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap; position: relative; z-index: 2; }
+.promo-text { color: #fff; max-width: 600px; }
+.promo-text h2 { font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 900; margin-bottom: 0.5rem; }
+.promo-text p { font-size: 1.1rem; opacity: 0.9; margin-bottom: 1.5rem; }
+.btn-promo { display: inline-flex; align-items: center; gap: 0.5rem; padding: 1rem 2rem; background: #fff; color: var(--accent); font-weight: 700; font-size: 0.95rem; border-radius: var(--radius-full); transition: all 0.3s var(--ease); box-shadow: 0 4px 15px rgba(0,0,0,0.15); }
+.btn-promo:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(0,0,0,0.2); }
+.promo-shapes { display: flex; gap: 1rem; align-items: center; }
+.promo-shape { width: 80px; height: 80px; border-radius: var(--radius-md); border: 2px solid rgba(255,255,255,0.3); animation: shapeFloat 4s ease-in-out infinite; }
+.promo-shape:nth-child(1) { background: rgba(255,255,255,0.1); animation-delay: 0s; }
+.promo-shape:nth-child(2) { background: rgba(255,255,255,0.15); width: 100px; height: 100px; animation-delay: 0.5s; border-radius: 50%; }
+.promo-shape:nth-child(3) { background: rgba(255,255,255,0.08); animation-delay: 1s; }
+@keyframes shapeFloat { 0%, 100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-15px) rotate(5deg); } }
+
+/* ========== BEST SELLERS ========== */
+.bestsellers { padding: 4rem 1rem; background: var(--gray-100); }
+.best-badge { background: linear-gradient(135deg, var(--gold-dark), var(--gold)); color: #fff; font-size: 0.65rem; font-weight: 700; padding: 3px 10px; border-radius: var(--radius-sm); position: absolute; top: 10px; left: 10px; z-index: 5; }
+.sold-tag { font-size: 0.7rem; color: var(--gray-500); font-weight: 500; }
+
+/* ========== WHY US ========== */
+.why-us { padding: 4rem 1rem; }
+.why-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; max-width: 1200px; margin: 0 auto; }
+.why-card { text-align: center; padding: 2rem 1rem; border-radius: var(--radius-md); background: var(--bg); box-shadow: var(--shadow-sm); transition: all 0.3s var(--ease); }
+.why-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+.why-icon { width: 64px; height: 64px; border-radius: 50%; background: rgba(0,180,166,0.1); display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; font-size: 1.5rem; color: var(--primary); transition: all 0.3s; }
+.why-card:hover .why-icon { background: var(--accent); color: #fff; }
+.why-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 0.3rem; }
+.why-card p { font-size: 0.85rem; color: var(--gray-500); }
+
+/* ========== NEWSLETTER ========== */
+.newsletter { position: relative; padding: 6rem 1rem 4rem; background: linear-gradient(135deg, var(--primary), var(--ocean)); color: #fff; text-align: center; overflow: hidden; }
+.newsletter::before { content: ''; position: absolute; top: -1px; left: 0; width: 100%; height: 70px; background: var(--bg); clip-path: polygon(0 0, 100% 0, 100% 30%, 95% 55%, 85% 40%, 75% 65%, 65% 35%, 55% 60%, 45% 30%, 35% 55%, 25% 25%, 15% 50%, 5% 20%, 0 45%); }
+.newsletter .bubble { position: absolute; border-radius: 50%; border: 1px solid rgba(255,255,255,0.12); background: rgba(255,255,255,0.04); pointer-events: none; }
+.newsletter .b1 { width: 120px; height: 120px; top: 20%; left: 5%; animation: bFloat 8s ease-in-out infinite; }
+.newsletter .b2 { width: 80px; height: 80px; top: 40%; right: 10%; animation: bFloat 6s ease-in-out infinite reverse; }
+.newsletter .b3 { width: 50px; height: 50px; bottom: 25%; left: 15%; animation: bFloat 10s ease-in-out infinite 2s; }
+@keyframes bFloat { 0%, 100% { transform: translateY(0); } 33% { transform: translateY(-20px); } 66% { transform: translateY(10px); } }
+.newsletter h2 { font-size: clamp(1.8rem, 4vw, 2.5rem); font-weight: 800; margin-bottom: 0.5rem; position: relative; z-index: 2; }
+.newsletter .sub { font-size: 1rem; opacity: 0.9; margin-bottom: 2rem; position: relative; z-index: 2; }
+.nl-form { display: flex; max-width: 480px; margin: 0 auto; position: relative; z-index: 2; }
+.nl-form input { flex: 1; padding: 1rem 1.2rem; border: 2px solid rgba(255,255,255,0.3); border-right: none; border-radius: var(--radius-full) 0 0 var(--radius-full); background: rgba(255,255,255,0.1); backdrop-filter: blur(4px); color: #fff; font-size: 0.9rem; outline: none; font-family: var(--font); }
+.nl-form input::placeholder { color: rgba(255,255,255,0.6); }
+.nl-form input:focus { border-color: rgba(255,255,255,0.6); background: rgba(255,255,255,0.15); }
+.nl-form button { padding: 1rem 1.8rem; background: var(--accent); color: #fff; font-weight: 700; font-size: 0.9rem; border: 2px solid var(--accent); border-radius: 0 var(--radius-full) var(--radius-full) 0; transition: all 0.2s; white-space: nowrap; }
+.nl-form button:hover { background: var(--accent-dark); border-color: var(--accent-dark); }
+.nl-note { font-size: 0.75rem; opacity: 0.7; margin-top: 1rem; position: relative; z-index: 2; }
+
+/* ========== FOOTER ========== */
+.footer { background: var(--dark); color: rgba(255,255,255,0.7); padding: 4rem 1rem 0; }
+.footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1.2fr; gap: 2rem; max-width: 1200px; margin: 0 auto; padding-bottom: 3rem; border-bottom: 1px solid rgba(255,255,255,0.1); }
+.footer-logo { margin-bottom: 1rem; }
+.footer-about { font-size: 0.85rem; line-height: 1.7; margin-bottom: 1.5rem; }
+.footer-social { display: flex; gap: 0.75rem; }
+.footer-social a { width: 36px; height: 36px; border-radius: 50%; background: rgba(255,255,255,0.08); display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.6); font-size: 0.9rem; transition: all 0.2s; }
+.footer-social a:hover { background: var(--primary); color: #fff; transform: translateY(-2px); }
+.footer h4 { color: #fff; font-size: 0.95rem; font-weight: 700; margin-bottom: 1.2rem; text-transform: uppercase; letter-spacing: 0.05em; }
+.footer-links { list-style: none; }
+.footer-links li { margin-bottom: 0.6rem; }
+.footer-links a { font-size: 0.85rem; transition: color 0.2s; }
+.footer-links a:hover { color: var(--primary); }
+.footer-contact p { font-size: 0.85rem; margin-bottom: 0.6rem; display: flex; align-items: flex-start; gap: 0.5rem; }
+.footer-contact i { color: var(--primary); margin-top: 3px; width: 16px; }
+.footer-bottom { max-width: 1200px; margin: 0 auto; padding: 1.5rem 0; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; font-size: 0.8rem; }
+.payment-icons { display: flex; gap: 0.5rem; }
+.payment-icons span { padding: 4px 8px; background: rgba(255,255,255,0.08); border-radius: 4px; font-size: 0.75rem; font-weight: 600; }
+
+/* ========== FLOATING ELEMENTS ========== */
+.whatsapp-float { position: fixed; bottom: 24px; right: 24px; width: 56px; height: 56px; background: #25D366; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 1.5rem; z-index: 900; box-shadow: 0 4px 15px rgba(37,211,102,0.4); animation: waPulse 2s ease-in-out infinite; transition: transform 0.2s; }
+.whatsapp-float:hover { transform: scale(1.1); }
+@keyframes waPulse { 0% { box-shadow: 0 0 0 0 rgba(37,211,102,0.5); } 70% { box-shadow: 0 0 0 15px rgba(37,211,102,0); } 100% { box-shadow: 0 0 0 0 rgba(37,211,102,0); } }
+.back-top { position: fixed; bottom: 90px; right: 28px; width: 44px; height: 44px; background: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 1rem; z-index: 900; opacity: 0; transform: translateY(20px); transition: all 0.3s var(--ease); box-shadow: var(--shadow-sm); }
+.back-top.visible { opacity: 1; transform: translateY(0); }
+.back-top:hover { background: var(--primary-dark); transform: translateY(-2px); }
+
+/* ========== SCROLL REVEAL ========== */
+.sr { opacity: 0; transform: translateY(30px); transition: opacity 0.7s var(--ease), transform 0.7s var(--ease); }
+.sr.visible { opacity: 1; transform: translateY(0); }
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 1024px) {
+    .cat-grid { grid-template-columns: repeat(4, 1fr); }
+    .why-grid { grid-template-columns: repeat(2, 1fr); }
+    .footer-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 768px) {
+    .menu-toggle { display: flex; }
+    .search-bar { max-width: 250px; }
+    .cat-bar { display: none; }
+    .cat-grid { grid-template-columns: repeat(2, 1fr); gap: 0.75rem; }
+    .product-grid { grid-template-columns: repeat(2, 1fr); gap: 0.75rem; }
+    .promo-content { justify-content: center; text-align: center; }
+    .promo-shapes { display: none; }
+    .promo { padding: 3rem 1rem; }
+    .promo-text h2 { font-size: 1.6rem; }
+    .why-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+    .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .footer-bottom { justify-content: center; text-align: center; }
+    .hero { min-height: 100vh; }
+    .hero h1 { font-size: clamp(2.8rem, 12vw, 4rem); }
+    .hero-slogan { font-size: 1.1rem; }
+    .hero-ctas { flex-direction: column; align-items: center; }
+    .btn-hero { width: 85%; justify-content: center; padding: 1rem 1.5rem; font-size: 1rem; }
+    .hero-trust { flex-direction: column; gap: 0.5rem; align-items: center; }
+    .store-showcase { padding: 2.5rem 1rem; }
+    .store-showcase-content { flex-direction: column; text-align: center; gap: 2rem; }
+    .store-info h2 { font-size: 1.8rem; }
+    .store-photo { min-width: unset; }
+    .flash-header { flex-direction: column; gap: 0.75rem; }
+    .flash-title { font-size: 1.2rem; }
+    .cd-num { font-size: 1.4rem; min-width: 48px; padding: 0.3rem 0.5rem; }
+    .section-title { font-size: clamp(1.5rem, 6vw, 2.2rem); }
+    .categories { padding: 2.5rem 0.75rem; }
+    .products { padding: 2.5rem 0.75rem; }
+    .bestsellers { padding: 2.5rem 0.75rem; }
+    .why-us { padding: 2.5rem 0.75rem; }
+    .filter-tabs { gap: 0.3rem; }
+    .filter-tab { padding: 0.4rem 0.8rem; font-size: 0.75rem; }
+    .whatsapp-float { bottom: 16px; right: 16px; width: 52px; height: 52px; font-size: 1.4rem; }
+    .back-top { bottom: 78px; right: 18px; width: 40px; height: 40px; }
+}
+@media (max-width: 480px) {
+    .header-main { gap: 0.4rem; padding: 0.6rem 0.5rem; }
+    .logo-icon { width: 34px; height: 34px; border-radius: 8px; }
+    .logo-main { padding: 0.25rem 0.5rem; }
+    .logo-876 { font-size: 1.1rem; margin-right: 4px; }
+    .logo-divider { height: 20px; margin: 0 5px; }
+    .logo-temu { font-size: 0.75rem; letter-spacing: 0.06em; }
+    .logo-fashion { font-size: 0.4rem; letter-spacing: 0.15em; }
+    .search-bar { max-width: none; flex: 1; padding: 0.4rem 0.7rem; }
+    .search-bar input { font-size: 0.8rem; }
+    .header-icons { gap: 0.4rem; }
+    .header-icon { font-size: 1rem; padding: 4px; }
+    .product-grid { grid-template-columns: repeat(2, 1fr); gap: 0.5rem; }
+    .p-card { border-radius: var(--radius-sm); }
+    .p-info { padding: 0.5rem; }
+    .p-brand { font-size: 0.55rem; }
+    .p-name { font-size: 0.75rem; -webkit-line-clamp: 1; }
+    .p-stars i { font-size: 0.6rem; }
+    .p-stars span { font-size: 0.6rem; }
+    .p-price { font-size: 0.9rem; }
+    .p-old { font-size: 0.7rem; }
+    .p-disc { font-size: 0.6rem; padding: 1px 4px; }
+    .p-cart-btn { padding: 0.5rem; font-size: 0.75rem; }
+    .p-badge { font-size: 0.55rem; padding: 2px 6px; top: 6px; left: 6px; }
+    .p-wishlist { width: 28px; height: 28px; font-size: 0.75rem; top: 6px; right: 6px; }
+    .cat-card { aspect-ratio: 1; border-radius: var(--radius-md); }
+    .cat-icon { font-size: 2rem; }
+    .cat-label { font-size: 0.75rem; }
+    .cat-count { font-size: 0.6rem; }
+    .deal-card { flex: 0 0 150px; }
+    .deal-name { font-size: 0.7rem; }
+    .deal-price { font-size: 0.85rem; }
+    .why-card { padding: 1.2rem 0.75rem; }
+    .why-icon { width: 50px; height: 50px; font-size: 1.2rem; }
+    .why-card h3 { font-size: 0.85rem; }
+    .why-card p { font-size: 0.75rem; }
+    .nl-form { flex-direction: column; gap: 10px; }
+    .nl-form input { border: 2px solid rgba(255,255,255,0.3); border-radius: var(--radius-full); padding: 0.85rem 1rem; }
+    .nl-form button { border-radius: var(--radius-full); padding: 0.85rem 1.5rem; }
+    .newsletter h2 { font-size: 1.5rem; }
+    .newsletter { padding: 5rem 0.75rem 3rem; }
+    .hero-badge { font-size: 0.65rem; padding: 0.4rem 1rem; letter-spacing: 0.1em; }
+    .hero p { font-size: 0.9rem; }
+    .announce-item { font-size: 0.7rem; gap: 1.5rem; padding: 0 2rem; }
+    .best-badge { font-size: 0.55rem; padding: 2px 8px; }
+    .sold-tag { font-size: 0.6rem; }
+    .promo-text h2 { font-size: 1.4rem; }
+    .promo-text p { font-size: 0.9rem; }
+    .btn-promo { padding: 0.8rem 1.5rem; font-size: 0.85rem; }
+    .footer { padding: 2.5rem 0.75rem 0; }
+    .footer h4 { font-size: 0.85rem; margin-bottom: 0.8rem; }
+    .footer-links a { font-size: 0.8rem; }
+    .footer-contact p { font-size: 0.8rem; }
+}
+/* Extra small phones */
+@media (max-width: 360px) {
+    .logo-icon { width: 30px; height: 30px; }
+    .logo-876 { font-size: 0.95rem; }
+    .logo-temu { font-size: 0.65rem; }
+    .hero h1 { font-size: 2.2rem; }
+    .hero-slogan { font-size: 0.9rem; }
+    .product-grid { gap: 0.4rem; }
+    .p-info { padding: 0.4rem; }
+    .p-price { font-size: 0.8rem; }
+    .cat-grid { gap: 0.5rem; }
+}
+/* Touch-friendly: bigger tap targets on mobile */
+@media (hover: none) and (pointer: coarse) {
+    .p-wishlist { opacity: 1; transform: scale(1); }
+    .p-cart-btn { transform: translateY(0); }
+    .p-overlay { display: none; }
+    .cat-pill, .filter-tab { min-height: 44px; display: flex; align-items: center; }
+    .header-icon { min-width: 44px; min-height: 44px; display: flex; align-items: center; justify-content: center; }
+    .mobile-link { min-height: 48px; }
+    .btn-hero { min-height: 52px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ANNOUNCEMENT BAR -->
+<div class="announce">
+    <div class="announce-track">
+        <div class="announce-item"><i class="fas fa-truck"></i> FREE DELIVERY IN NEGRIL &nbsp;&bull;&nbsp; <i class="fas fa-tag"></i> WHOLESALE PRICES AVAILABLE &nbsp;&bull;&nbsp; <i class="fas fa-clock"></i> OPEN MON-SAT 8AM-8PM &nbsp;&bull;&nbsp; <i class="fas fa-fire"></i> NEW ARRIVALS WEEKLY &nbsp;&bull;&nbsp; <i class="fas fa-percent"></i> UP TO 70% OFF SELECTED ITEMS</div>
+        <div class="announce-item"><i class="fas fa-truck"></i> FREE DELIVERY IN NEGRIL &nbsp;&bull;&nbsp; <i class="fas fa-tag"></i> WHOLESALE PRICES AVAILABLE &nbsp;&bull;&nbsp; <i class="fas fa-clock"></i> OPEN MON-SAT 8AM-8PM &nbsp;&bull;&nbsp; <i class="fas fa-fire"></i> NEW ARRIVALS WEEKLY &nbsp;&bull;&nbsp; <i class="fas fa-percent"></i> UP TO 70% OFF SELECTED ITEMS</div>
+    </div>
+</div>
+
+<!-- HEADER -->
+<header class="header" id="header">
+    <div class="header-main">
+        <a href="#" class="logo">
+            <img src="temu-logo.png" alt="Temu" class="logo-icon">
+            <div class="logo-main">
+                <span class="logo-876">876</span>
+                <span class="logo-divider"></span>
+                <div class="logo-text">
+                    <span class="logo-temu">TEMU FASHION</span>
+                    <span class="logo-fashion">WHOLESALE & RETAIL</span>
+                </div>
+            </div>
+        </a>
+        <div class="search-bar">
+            <button><i class="fas fa-magnifying-glass"></i></button>
+            <input type="text" id="searchInput" placeholder="Search products...">
+        </div>
+        <div class="header-icons">
+            <button class="header-icon"><i class="fas fa-user"></i></button>
+            <button class="header-icon"><i class="fas fa-heart"></i><span class="badge-count">3</span></button>
+            <button class="header-icon" onclick="toggleCart()"><i class="fas fa-bag-shopping"></i><span class="badge-count">2</span></button>
+            <button class="menu-toggle" id="menuToggle" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+        </div>
+    </div>
+    <nav class="cat-bar">
+        <div class="cat-pills">
+            <button class="cat-pill active" data-cat="all">All</button>
+            <button class="cat-pill" data-cat="women">Women</button>
+            <button class="cat-pill" data-cat="men">Men</button>
+            <button class="cat-pill" data-cat="kids">Kids</button>
+            <button class="cat-pill" data-cat="lingerie">Lingerie</button>
+            <button class="cat-pill" data-cat="accessories">Accessories</button>
+            <button class="cat-pill" data-cat="home">Home & Living</button>
+            <button class="cat-pill" data-cat="wholesale">Wholesale</button>
+        </div>
+    </nav>
+</header>
+
+<!-- MOBILE MENU -->
+<div class="mobile-backdrop" id="mobileBackdrop" onclick="toggleMenu()"></div>
+<div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu-header">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
+            <img src="temu-logo.png" alt="Temu" style="width:48px;height:48px;border-radius:12px;">
+            <div>
+                <div style="display:flex;align-items:center;gap:6px;"><span style="font-size:1.6rem;font-weight:900;">876</span><span style="font-size:1.1rem;font-weight:800;letter-spacing:0.1em;">TEMU FASHION</span></div>
+                <span style="font-size:0.6rem;font-weight:600;color:var(--accent-light);letter-spacing:0.2em;">WHOLESALE & RETAIL — NEGRIL</span>
+            </div>
+        </div>
+        <p>Negril's #1 Fashion Store</p>
+    </div>
+    <nav class="mobile-nav">
+        <a href="#" class="mobile-link"><i class="fas fa-home"></i> Home</a>
+        <a href="#categories" class="mobile-link"><i class="fas fa-th-large"></i> Categories</a>
+        <a href="#new-arrivals" class="mobile-link"><i class="fas fa-sparkles"></i> New Arrivals</a>
+        <a href="#flash-deals" class="mobile-link"><i class="fas fa-bolt"></i> Flash Deals</a>
+        <a href="#bestsellers" class="mobile-link"><i class="fas fa-crown"></i> Best Sellers</a>
+        <a href="#wholesale" class="mobile-link"><i class="fas fa-boxes-stacked"></i> Wholesale</a>
+        <a href="#contact" class="mobile-link"><i class="fas fa-envelope"></i> Contact Us</a>
+    </nav>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-content sr">
+        <div class="hero-badge"><i class="fas fa-crown"></i> &nbsp;NEGRIL'S #1 FASHION DESTINATION</div>
+        <h1><span class="teal">876</span> TEMU<br><span class="accent">FASHION</span></h1>
+        <div class="hero-slogan">"One Love, One Style — Straight Outta Negril"</div>
+        <p>Wholesale & Retail Fashion &bull; Clothing &bull; Lingerie &bull; Accessories</p>
+        <div class="hero-ctas">
+            <a href="#new-arrivals" class="btn-hero primary"><i class="fas fa-bag-shopping"></i> SHOP NOW</a>
+            <a href="#wholesale" class="btn-hero outline"><i class="fas fa-boxes-stacked"></i> WHOLESALE</a>
+        </div>
+        <div class="hero-trust">
+            <span><i class="fas fa-fire"></i> 1000+ Products</span>
+            <span><i class="fas fa-tag"></i> Lowest Prices</span>
+            <span><i class="fas fa-store"></i> Visit Our Store</span>
+        </div>
+    </div>
+</section>
+
+<!-- STORE SHOWCASE -->
+<section class="store-showcase sr">
+    <div class="store-showcase-content">
+        <div class="store-photo">
+            <img src="store-night.jpg" alt="876 Temu Fashion Store - Negril Jamaica at night">
+        </div>
+        <div class="store-info">
+            <h2>Visit Our <span class="gold">Store</span></h2>
+            <p>Come check out our massive selection at our Negril location. From designer fashion to everyday essentials — we got everything fi yuh wardrobe. Wholesale prices available for resellers and boutiques across Jamaica.</p>
+            <span class="store-tag"><i class="fas fa-location-dot"></i> &nbsp;7MH2+RW4, Negril, Jamaica</span>
+        </div>
+    </div>
+</section>
+
+<!-- FLASH DEALS -->
+<section class="flash" id="flash-deals">
+    <div class="flash-header sr">
+        <span class="flash-bolt"></span>
+        <h2 class="flash-title">FLASH DEALS</h2>
+        <div class="countdown">
+            <div class="cd-block"><span class="cd-num" id="cd-h">08</span><span class="cd-label">Hours</span></div>
+            <span class="cd-sep">:</span>
+            <div class="cd-block"><span class="cd-num" id="cd-m">45</span><span class="cd-label">Mins</span></div>
+            <span class="cd-sep">:</span>
+            <div class="cd-block"><span class="cd-num" id="cd-s">22</span><span class="cd-label">Secs</span></div>
+        </div>
+    </div>
+    <div class="flash-scroll">
+        <div class="deal-card"><div class="deal-img"><div class="placeholder ph-sunset"><div class="sil sil-dress"></div></div><span class="deal-badge">-50%</span></div><div class="deal-info"><div class="deal-name">Tropical Print Maxi Dress</div><div class="deal-prices"><span class="deal-price">J$2,500</span><span class="deal-old">J$5,000</span></div><div class="deal-progress"><div class="deal-progress-fill" style="width:87%"></div></div><span class="deal-claimed">87% claimed</span></div></div>
+        <div class="deal-card"><div class="deal-img"><div class="placeholder ph-waves"><div class="sil sil-shirt"></div></div><span class="deal-badge">-40%</span></div><div class="deal-info"><div class="deal-name">Negril Beach Polo Shirt</div><div class="deal-prices"><span class="deal-price">J$1,800</span><span class="deal-old">J$3,000</span></div><div class="deal-progress"><div class="deal-progress-fill" style="width:72%"></div></div><span class="deal-claimed">72% claimed</span></div></div>
+        <div class="deal-card"><div class="deal-img"><div class="placeholder ph-dots"><div class="sil sil-bag"></div></div><span class="deal-badge">-35%</span></div><div class="deal-info"><div class="deal-name">Caribbean Crossbody Bag</div><div class="deal-prices"><span class="deal-price">J$1,200</span><span class="deal-old">J$1,850</span></div><div class="deal-progress"><div class="deal-progress-fill" style="width:63%"></div></div><span class="deal-claimed">63% claimed</span></div></div>
+        <div class="deal-card"><div class="deal-img"><div class="placeholder ph-hibiscus"><div class="sil sil-dress"></div></div><span class="deal-badge">-60%</span></div><div class="deal-info"><div class="deal-name">Silk Lace Cami Set</div><div class="deal-prices"><span class="deal-price">J$1,500</span><span class="deal-old">J$3,750</span></div><div class="deal-progress"><div class="deal-progress-fill" style="width:91%"></div></div><span class="deal-claimed">91% claimed</span></div></div>
+        <div class="deal-card"><div class="deal-img"><div class="placeholder ph-palms"><div class="sil sil-pants"></div></div><span class="deal-badge">-30%</span></div><div class="deal-info"><div class="deal-name">Kids Summer Short Set</div><div class="deal-prices"><span class="deal-price">J$1,400</span><span class="deal-old">J$2,000</span></div><div class="deal-progress"><div class="deal-progress-fill" style="width:55%"></div></div><span class="deal-claimed">55% claimed</span></div></div>
+        <div class="deal-card"><div class="deal-img"><div class="placeholder ph-sunset"><div class="sil sil-shoe"></div></div><span class="deal-badge">-45%</span></div><div class="deal-info"><div class="deal-name">Strappy Sandals Gold</div><div class="deal-prices"><span class="deal-price">J$1,100</span><span class="deal-old">J$2,000</span></div><div class="deal-progress"><div class="deal-progress-fill" style="width:78%"></div></div><span class="deal-claimed">78% claimed</span></div></div>
+    </div>
+</section>
+
+<!-- CATEGORIES -->
+<section class="categories sr" id="categories">
+    <h2 class="section-title">Shop by Category</h2>
+    <p class="section-sub">Find exactly what you're looking for</p>
+    <div class="cat-grid">
+        <div class="cat-card cat-card--women"><i class="fas fa-person-dress cat-icon"></i><span class="cat-label">Women</span><span class="cat-count">250+ items</span></div>
+        <div class="cat-card cat-card--men"><i class="fas fa-person cat-icon"></i><span class="cat-label">Men</span><span class="cat-count">180+ items</span></div>
+        <div class="cat-card cat-card--kids"><i class="fas fa-baby cat-icon"></i><span class="cat-label">Kids</span><span class="cat-count">120+ items</span></div>
+        <div class="cat-card cat-card--lingerie"><i class="fas fa-heart cat-icon"></i><span class="cat-label">Lingerie</span><span class="cat-count">90+ items</span></div>
+        <div class="cat-card cat-card--accessories"><i class="fas fa-gem cat-icon"></i><span class="cat-label">Accessories</span><span class="cat-count">200+ items</span></div>
+        <div class="cat-card cat-card--shoes"><i class="fas fa-shoe-prints cat-icon"></i><span class="cat-label">Shoes</span><span class="cat-count">150+ items</span></div>
+        <div class="cat-card cat-card--swim"><i class="fas fa-umbrella-beach cat-icon"></i><span class="cat-label">Swimwear</span><span class="cat-count">60+ items</span></div>
+        <div class="cat-card cat-card--wholesale"><i class="fas fa-boxes-stacked cat-icon"></i><span class="cat-label">Wholesale</span><span class="cat-count">500+ items</span></div>
+    </div>
+</section>
+
+<!-- NEW ARRIVALS -->
+<section class="products sr" id="new-arrivals">
+    <h2 class="section-title">New Arrivals</h2>
+    <p class="section-sub">Fresh styles just landed from around the world</p>
+    <div class="filter-tabs">
+        <button class="filter-tab active" data-filter="all">All</button>
+        <button class="filter-tab" data-filter="women">Women</button>
+        <button class="filter-tab" data-filter="men">Men</button>
+        <button class="filter-tab" data-filter="kids">Kids</button>
+        <button class="filter-tab" data-filter="accessories">Accessories</button>
+    </div>
+    <div class="product-grid" id="productGrid">
+        <!-- Product 1 -->
+        <div class="p-card" data-category="women"><div class="p-card-img"><div class="placeholder ph-sunset"><div class="sil sil-dress"></div></div><span class="p-badge new">NEW</span><button class="p-wishlist" onclick="event.stopPropagation();this.classList.toggle('liked')"><i class="fas fa-heart"></i></button><div class="p-overlay"><button class="p-quick"><i class="fas fa-eye"></i> Quick View</button></div></div><div class="p-info"><div class="p-brand">876 TEMU</div><div class="p-name">Tropical Paradise Maxi Dress</div><div class="p-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-stroke"></i><span>(124)</span></div><div class="p-price-row"><span class="p-price">J$3,500</span><span class="p-old">J$5,500</span><span class="p-disc">-36%</span></div></div><button class="p-cart-btn"><i class="fas fa-cart-plus"></i> Add to Cart</button></div>
+        <!-- Product 2 -->
+        <div class="p-card" data-category="men"><div class="p-card-img"><div class="placeholder ph-waves"><div class="sil sil-shirt"></div></div><span class="p-badge new">NEW</span><button class="p-wishlist" onclick="event.stopPropagation();this.classList.toggle('liked')"><i class="fas fa-heart"></i></button><div class="p-overlay"><button class="p-quick"><i class="fas fa-eye"></i> Quick View</button></div></div><div class="p-info"><div class="p-brand">876 TEMU</div><div class="p-name">Negril Beach Linen Shirt</div><div class="p-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star empty"></i><span>(87)</span></div><div class="p-price-row"><span class="p-price">J$2,800</span><span class="p-old">J$4,200</span><span class="p-disc">-33%</span></div></div><button class="p-cart-btn"><i class="fas fa-cart-plus"></i> Add to Cart</button></div>
+        <!-- Product 3 -->
+        <div class="p-card" data-category="women"><div class="p-card-img"><div class="placeholder ph-hibiscus"><div class="sil sil-dress"></div></div><span class="p-badge hot">HOT</span><button class="p-wishlist" onclick="event.stopPropagation();this.classList.toggle('liked')"><i class="fas fa-heart"></i></button><div class="p-overlay"><button class="p-quick"><i class="fas fa-eye"></i> Quick View</button></div></div><div class="p-info"><div class="p-brand">876 TEMU</div><div class="p-name">Lace Bodycon Evening Dress</div><div class="p-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><span>(203)</span></div><div class="p-price-row"><span class="p-price">J$4,200</span><span class="p-old">J$7,000</span><span class="p-disc">-40%</span></div></div><button class="p-cart-btn"><i class="fas fa-cart-plus"></i> Add to Cart</button></div>
+        <!-- Product 4 -->
+        <div class="p-card" data-category="kids"><div class="p-card-img"><div class="placeholder ph-dots"><div class="sil sil-shirt"></div></div><span class="p-badge new">NEW</span><button class="p-wishlist" onclick="event.stopPropagation();this.classList.toggle('liked')"><i class="fas fa-heart"></i></button><div class="p-overlay"><button class="p-quick"><i class="fas fa-eye"></i> Quick View</button></div></div><div class="p-info"><div class="p-brand">876 TEMU</div><div class="p-name">Kids Summer Rainbow Set</div><div class="p-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-stroke"></i><span>(56)</span></div><div class="p-price-row"><span class="p-price">J$2,200</span><span class="p-old">J$3,500</span><span class="p-disc">-37%</span></div></div><button class="p-cart-btn"><i class="fas fa-cart-plus"></i> Add to Cart</button></div>
+        <!-- Product 5 -->
+        <div class="p-card" data-category="accessories"><div class="p-card-img"><div class="placeholder ph-palms"><div class="sil sil-bag"></div></div><span class="p-badge sale">SALE</span><button class="p-wishlist" onclick="event.stopPropagation();this.classList.toggle('liked')"><i class="fas fa-heart"></i></button><div class="p-overlay"><button class="p-quick"><i class="fas fa-eye"></i> Quick View</button></div></div><div class="p-info"><div class="p-brand">876 TEMU</div><div class="p-name">Gold Chain Statement Necklace</div><div class="p-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star empty"></i><span>(92)</span></div><div class="p-price-row"><span class="p-price">J$1,500</span><span class="p-old">J$2,800</span><span class="p-disc">-46%</span></div></div><button class="p-cart-btn"><i class="fas fa-cart-plus"></i> Add to Cart</button></div>
+        <!-- Product 6 -->
+        <div class="p-card" data-category="men"><div class="p-card-img"><div class="placeholder ph-sunset"><div class="sil sil-pants"></div></div><span class="p-badge new">NEW</span><button class="p-wishlist" onclick="event.stopPropagation();this.classList.toggle('liked')"><i class="fas fa-heart"></i></button><div class="p-overlay"><button class="p-quick"><i class="fas fa-eye"></i> Quick View</button></div></div><div class="p-info"><div class="p-brand">876 TEMU</div><div class="p-name">Slim Fit Cargo Joggers</div><div class="p-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-stroke"></i><span>(145)</span></div><div class="p-price-row"><span class="p-price">J$2,400</span><span class="p-old">J$3,800</span><span class="p-disc">-37%</span></div></div><button class="p-cart-btn"><i class="fas fa-cart-plus"></i> Add to Cart</button></div>
+        <!-- Product 7 -->
+        <div class="p-card" data-category="women"><div class="p-card-img"><div class="placeholder ph-waves"><div class="sil sil-dress"></div></div><span class="p-badge hot">HOT</span><button class="p-wishlist" onclick="event.stopPropagation();this.classList.toggle('liked')"><i class="fas fa-heart"></i></button><div class="p-overlay"><button class="p-quick"><i class="fas fa-eye"></i> Quick View</button></div></div><div class="p-info"><div class="p-brand">876 TEMU</div><div class="p-name">Off-Shoulder Ruffle Top</div><div class="p-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><span>(178)</span></div><div class="p-price-row"><span class="p-price">J$1,800</span><span class="p-old">J$3,200</span><span class="p-disc">-44%</span></div></div><button class="p-cart-btn"><i class="fas fa-cart-plus"></i> Add to Cart</button></div>
+        <!-- Product 8 -->
+        <div class="p-card" data-category="accessories"><div class="p-card-img"><div class="placeholder ph-hibiscus"><div class="sil sil-shoe"></div></div><span class="p-badge sale">SALE</span><button class="p-wishlist" onclick="event.stopPropagation();this.classList.toggle('liked')"><i class="fas fa-heart"></i></button><div class="p-overlay"><button class="p-quick"><i class="fas fa-eye"></i> Quick View</button></div></div><div class="p-info"><div class="p-brand">876 TEMU</div><div class="p-name">Strappy Block Heel Sandals</div><div class="p-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-stroke"></i><span>(67)</span></div><div class="p-price-row"><span class="p-price">J$2,200</span><span class="p-old">J$3,500</span><span class="p-disc">-37%</span></div></div><button class="p-cart-btn"><i class="fas fa-cart-plus"></i> Add to Cart</button></div>
+        <!-- Product 9 -->
+        <div class="p-card" data-category="women"><div class="p-card-img"><div class="placeholder ph-dots"><div class="sil sil-dress"></div></div><span class="p-badge new">NEW</span><button class="p-wishlist" onclick="event.stopPropagation();this.classList.toggle('liked')"><i class="fas fa-heart"></i></button><div class="p-overlay"><button class="p-quick"><i class="fas fa-eye"></i> Quick View</button></div></div><div class="p-info"><div class="p-brand">876 TEMU</div><div class="p-name">Floral Wrap Midi Skirt</div><div class="p-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star empty"></i><span>(43)</span></div><div class="p-price-row"><span class="p-price">J$1,900</span><span class="p-old">J$3,000</span><span class="p-disc">-37%</span></div></div><button class="p-cart-btn"><i class="fas fa-cart-plus"></i> Add to Cart</button></div>
+        <!-- Product 10 -->
+        <div class="p-card" data-category="men"><div class="p-card-img"><div class="placeholder ph-palms"><div class="sil sil-shirt"></div></div><span class="p-badge hot">HOT</span><button class="p-wishlist" onclick="event.stopPropagation();this.classList.toggle('liked')"><i class="fas fa-heart"></i></button><div class="p-overlay"><button class="p-quick"><i class="fas fa-eye"></i> Quick View</button></div></div><div class="p-info"><div class="p-brand">876 TEMU</div><div class="p-name">Reggae Vibes Graphic Tee</div><div class="p-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><span>(312)</span></div><div class="p-price-row"><span class="p-price">J$1,500</span><span class="p-old">J$2,500</span><span class="p-disc">-40%</span></div></div><button class="p-cart-btn"><i class="fas fa-cart-plus"></i> Add to Cart</button></div>
+        <!-- Product 11 -->
+        <div class="p-card" data-category="kids"><div class="p-card-img"><div class="placeholder ph-sunset"><div class="sil sil-shirt"></div></div><span class="p-badge new">NEW</span><button class="p-wishlist" onclick="event.stopPropagation();this.classList.toggle('liked')"><i class="fas fa-heart"></i></button><div class="p-overlay"><button class="p-quick"><i class="fas fa-eye"></i> Quick View</button></div></div><div class="p-info"><div class="p-brand">876 TEMU</div><div class="p-name">Baby Girl Tutu Dress Set</div><div class="p-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><span>(89)</span></div><div class="p-price-row"><span class="p-price">J$1,800</span><span class="p-old">J$2,800</span><span class="p-disc">-36%</span></div></div><button class="p-cart-btn"><i class="fas fa-cart-plus"></i> Add to Cart</button></div>
+        <!-- Product 12 -->
+        <div class="p-card" data-category="women"><div class="p-card-img"><div class="placeholder ph-hibiscus"><div class="sil sil-dress"></div></div><span class="p-badge sale">SALE</span><button class="p-wishlist" onclick="event.stopPropagation();this.classList.toggle('liked')"><i class="fas fa-heart"></i></button><div class="p-overlay"><button class="p-quick"><i class="fas fa-eye"></i> Quick View</button></div></div><div class="p-info"><div class="p-brand">876 TEMU</div><div class="p-name">Satin Slip Dress Emerald</div><div class="p-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-stroke"></i><span>(156)</span></div><div class="p-price-row"><span class="p-price">J$3,200</span><span class="p-old">J$5,800</span><span class="p-disc">-45%</span></div></div><button class="p-cart-btn"><i class="fas fa-cart-plus"></i> Add to Cart</button></div>
+    </div>
+</section>
+
+<!-- PROMO WHOLESALE -->
+<section class="promo sr" id="wholesale">
+    <div class="promo-content">
+        <div class="promo-text">
+            <h2><i class="fas fa-boxes-stacked"></i> WHOLESALE DEALS</h2>
+            <p>Buy more, save more. Starting from J$500 per piece. Perfect for resellers & boutiques across Jamaica.</p>
+            <a href="#" class="btn-promo"><i class="fas fa-tag"></i> VIEW WHOLESALE CATALOG</a>
+        </div>
+        <div class="promo-shapes">
+            <div class="promo-shape"></div>
+            <div class="promo-shape"></div>
+            <div class="promo-shape"></div>
+        </div>
+    </div>
+</section>
+
+<!-- BEST SELLERS -->
+<section class="bestsellers sr" id="bestsellers">
+    <h2 class="section-title"><i class="fas fa-crown" style="color:var(--gold)"></i> Best Sellers</h2>
+    <p class="section-sub">Our most loved products this month</p>
+    <div class="product-grid" style="max-width:1200px;margin:0 auto;">
+        <div class="p-card" data-category="women"><div class="p-card-img"><div class="placeholder ph-waves"><div class="sil sil-dress"></div></div><span class="best-badge"><i class="fas fa-crown"></i> Best Seller</span><button class="p-wishlist" onclick="event.stopPropagation();this.classList.toggle('liked')"><i class="fas fa-heart"></i></button><div class="p-overlay"><button class="p-quick"><i class="fas fa-eye"></i> Quick View</button></div></div><div class="p-info"><div class="p-brand">876 TEMU</div><div class="p-name">Boho Beach Wrap Dress</div><div class="p-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><span>(1.2K)</span></div><div class="p-price-row"><span class="p-price">J$2,800</span><span class="p-old">J$4,500</span><span class="p-disc">-38%</span></div><span class="sold-tag">1.2K sold</span></div><button class="p-cart-btn"><i class="fas fa-cart-plus"></i> Add to Cart</button></div>
+        <div class="p-card" data-category="men"><div class="p-card-img"><div class="placeholder ph-palms"><div class="sil sil-shirt"></div></div><span class="best-badge"><i class="fas fa-crown"></i> Best Seller</span><button class="p-wishlist" onclick="event.stopPropagation();this.classList.toggle('liked')"><i class="fas fa-heart"></i></button><div class="p-overlay"><button class="p-quick"><i class="fas fa-eye"></i> Quick View</button></div></div><div class="p-info"><div class="p-brand">876 TEMU</div><div class="p-name">Island Vibes Button Down</div><div class="p-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-stroke"></i><span>(876)</span></div><div class="p-price-row"><span class="p-price">J$2,200</span><span class="p-old">J$3,600</span><span class="p-disc">-39%</span></div><span class="sold-tag">876 sold</span></div><button class="p-cart-btn"><i class="fas fa-cart-plus"></i> Add to Cart</button></div>
+        <div class="p-card" data-category="women"><div class="p-card-img"><div class="placeholder ph-hibiscus"><div class="sil sil-dress"></div></div><span class="best-badge"><i class="fas fa-crown"></i> Best Seller</span><button class="p-wishlist" onclick="event.stopPropagation();this.classList.toggle('liked')"><i class="fas fa-heart"></i></button><div class="p-overlay"><button class="p-quick"><i class="fas fa-eye"></i> Quick View</button></div></div><div class="p-info"><div class="p-brand">876 TEMU</div><div class="p-name">Coral Reef Bikini Set</div><div class="p-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><span>(2.1K)</span></div><div class="p-price-row"><span class="p-price">J$1,900</span><span class="p-old">J$3,200</span><span class="p-disc">-41%</span></div><span class="sold-tag">2.1K sold</span></div><button class="p-cart-btn"><i class="fas fa-cart-plus"></i> Add to Cart</button></div>
+        <div class="p-card" data-category="accessories"><div class="p-card-img"><div class="placeholder ph-dots"><div class="sil sil-bag"></div></div><span class="best-badge"><i class="fas fa-crown"></i> Best Seller</span><button class="p-wishlist" onclick="event.stopPropagation();this.classList.toggle('liked')"><i class="fas fa-heart"></i></button><div class="p-overlay"><button class="p-quick"><i class="fas fa-eye"></i> Quick View</button></div></div><div class="p-info"><div class="p-brand">876 TEMU</div><div class="p-name">Rasta Colors Tote Bag</div><div class="p-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-stroke"></i><span>(654)</span></div><div class="p-price-row"><span class="p-price">J$1,600</span><span class="p-old">J$2,500</span><span class="p-disc">-36%</span></div><span class="sold-tag">654 sold</span></div><button class="p-cart-btn"><i class="fas fa-cart-plus"></i> Add to Cart</button></div>
+        <div class="p-card" data-category="men"><div class="p-card-img"><div class="placeholder ph-sunset"><div class="sil sil-pants"></div></div><span class="best-badge"><i class="fas fa-crown"></i> Best Seller</span><button class="p-wishlist" onclick="event.stopPropagation();this.classList.toggle('liked')"><i class="fas fa-heart"></i></button><div class="p-overlay"><button class="p-quick"><i class="fas fa-eye"></i> Quick View</button></div></div><div class="p-info"><div class="p-brand">876 TEMU</div><div class="p-name">Montego Bay Swim Trunks</div><div class="p-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><span>(1.5K)</span></div><div class="p-price-row"><span class="p-price">J$1,400</span><span class="p-old">J$2,200</span><span class="p-disc">-36%</span></div><span class="sold-tag">1.5K sold</span></div><button class="p-cart-btn"><i class="fas fa-cart-plus"></i> Add to Cart</button></div>
+        <div class="p-card" data-category="kids"><div class="p-card-img"><div class="placeholder ph-waves"><div class="sil sil-shirt"></div></div><span class="best-badge"><i class="fas fa-crown"></i> Best Seller</span><button class="p-wishlist" onclick="event.stopPropagation();this.classList.toggle('liked')"><i class="fas fa-heart"></i></button><div class="p-overlay"><button class="p-quick"><i class="fas fa-eye"></i> Quick View</button></div></div><div class="p-info"><div class="p-brand">876 TEMU</div><div class="p-name">Kids Jamaica Flag Tee</div><div class="p-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><span>(987)</span></div><div class="p-price-row"><span class="p-price">J$1,200</span><span class="p-old">J$1,800</span><span class="p-disc">-33%</span></div><span class="sold-tag">987 sold</span></div><button class="p-cart-btn"><i class="fas fa-cart-plus"></i> Add to Cart</button></div>
+    </div>
+</section>
+
+<!-- WHY US -->
+<section class="why-us sr">
+    <h2 class="section-title">Why Shop With Us</h2>
+    <p class="section-sub">Jamaica's trusted fashion destination since day one</p>
+    <div class="why-grid">
+        <div class="why-card"><div class="why-icon"><i class="fas fa-truck-fast"></i></div><h3>Free Negril Delivery</h3><p>On orders over J$5,000</p></div>
+        <div class="why-card"><div class="why-icon"><i class="fas fa-shield-halved"></i></div><h3>Quality Guaranteed</h3><p>Authentic products only</p></div>
+        <div class="why-card"><div class="why-icon"><i class="fas fa-tags"></i></div><h3>Best Wholesale Prices</h3><p>Unbeatable bulk deals</p></div>
+        <div class="why-card"><div class="why-icon"><i class="fas fa-rotate-left"></i></div><h3>Easy Returns</h3><p>7-day return policy</p></div>
+    </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section class="newsletter">
+    <div class="bubble b1"></div>
+    <div class="bubble b2"></div>
+    <div class="bubble b3"></div>
+    <h2>JOIN THE 876 FAMILY</h2>
+    <p class="sub">Get exclusive deals, new arrivals & wholesale offers straight to your inbox</p>
+    <form class="nl-form" onsubmit="event.preventDefault();this.innerHTML='<p style=\'font-size:1.2rem;font-weight:700;\'>Welcome to the family! 🇯🇲</p>';"><input type="email" placeholder="Enter your email..." required><button type="submit">SUBSCRIBE</button></form>
+    <p class="nl-note">No spam. Unsubscribe anytime.</p>
+</section>
+
+<!-- FIND US MAP -->
+<section class="map-section sr" style="padding:3rem 1rem 0;background:var(--bg-warm);">
+    <h2 class="section-title"><i class="fas fa-location-dot" style="color:var(--accent)"></i> Find Us</h2>
+    <p class="section-sub">7MH2+RW4 — Negril, Westmoreland, Jamaica</p>
+    <div style="max-width:1200px;margin:0 auto;border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-lg);">
+        <iframe src="https://maps.google.com/maps?q=7MH2%2BRW4+Negril+Jamaica&t=&z=16&ie=UTF8&iwloc=&output=embed" width="100%" height="350" style="border:0;display:block;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+    <div style="text-align:center;padding:1.5rem 0 2rem;">
+        <a href="https://www.google.com/maps/search/7MH2%2BRW4+Negril+Jamaica" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:0.5rem;padding:0.8rem 2rem;background:var(--primary);color:#fff;font-weight:700;font-size:0.9rem;border-radius:var(--radius-full);transition:all 0.3s;box-shadow:0 4px 15px rgba(0,180,166,0.3);"><i class="fas fa-directions"></i> Open in Google Maps</a>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer" id="contact">
+    <div class="footer-grid">
+        <div>
+            <div class="footer-logo" style="display:flex;align-items:center;gap:10px;">
+                <img src="temu-logo.png" alt="Temu" style="width:44px;height:44px;border-radius:10px;">
+                <div style="display:flex;align-items:center;gap:0;background:linear-gradient(135deg,#3CBCAD,#2AA89A);border-radius:var(--radius-md);padding:0.3rem 0.7rem;">
+                    <span style="font-size:1.2rem;font-weight:900;color:#fff;margin-right:5px;">876</span>
+                    <span style="width:2px;height:20px;background:rgba(255,255,255,0.35);margin:0 6px;border-radius:1px;"></span>
+                    <div><span style="display:block;font-size:0.8rem;font-weight:800;color:#fff;letter-spacing:0.1em;">TEMU FASHION</span><span style="display:block;font-size:0.42rem;font-weight:600;color:var(--accent-light);letter-spacing:0.2em;">WHOLESALE & RETAIL</span></div>
+                </div>
+            </div>
+            <p class="footer-about">Your one-stop fashion destination in Negril, Jamaica. Wholesale and retail clothing, accessories, lingerie, and more at unbeatable prices.</p>
+            <div class="footer-social">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-tiktok"></i></a>
+                <a href="#"><i class="fab fa-whatsapp"></i></a>
+            </div>
+        </div>
+        <div>
+            <h4>Shop</h4>
+            <ul class="footer-links">
+                <li><a href="#">Women's Fashion</a></li>
+                <li><a href="#">Men's Fashion</a></li>
+                <li><a href="#">Kids & Baby</a></li>
+                <li><a href="#">Lingerie</a></li>
+                <li><a href="#">Accessories</a></li>
+                <li><a href="#">Wholesale</a></li>
+            </ul>
+        </div>
+        <div>
+            <h4>Help</h4>
+            <ul class="footer-links">
+                <li><a href="#">Contact Us</a></li>
+                <li><a href="#">Returns & Refunds</a></li>
+                <li><a href="#">Shipping Info</a></li>
+                <li><a href="#">Size Guide</a></li>
+                <li><a href="#">FAQ</a></li>
+            </ul>
+        </div>
+        <div class="footer-contact">
+            <h4>Contact Us</h4>
+            <p><i class="fas fa-location-dot"></i> 7MH2+RW4, Negril, Westmoreland, Jamaica</p>
+            <p><i class="fas fa-phone"></i> +1 (876) 555-0876</p>
+            <p><i class="fas fa-envelope"></i> info@876temufashion.com</p>
+            <p><i class="fas fa-clock"></i> Mon-Sat: 8:00 AM - 8:00 PM</p>
+            <div style="margin-top:0.75rem;border-radius:var(--radius-md);overflow:hidden;box-shadow:0 2px 10px rgba(0,0,0,0.2);">
+                <iframe src="https://maps.google.com/maps?q=7MH2%2BRW4+Negril+Jamaica&t=&z=17&ie=UTF8&iwloc=&output=embed" width="100%" height="180" style="border:0;display:block;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+            <a href="https://www.google.com/maps/search/7MH2%2BRW4+Negril+Jamaica" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:0.4rem;margin-top:0.5rem;font-size:0.8rem;color:var(--primary-light);font-weight:600;"><i class="fas fa-directions"></i> Get Directions</a>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <span>&copy; 2026 876 Temu Fashion. All rights reserved. Made with love in Jamaica 🇯🇲</span>
+        <div class="payment-icons">
+            <span><i class="fab fa-cc-visa"></i> Visa</span>
+            <span><i class="fab fa-cc-mastercard"></i> MC</span>
+            <span><i class="fas fa-money-bill-wave"></i> Cash</span>
+        </div>
+    </div>
+</footer>
+
+<!-- FLOATING ELEMENTS -->
+<a href="https://wa.me/18765550876" class="whatsapp-float" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i></a>
+<button class="back-top" id="backTop" onclick="window.scrollTo({top:0})"><i class="fas fa-chevron-up"></i></button>
+
+<!-- JAVASCRIPT -->
+<script>
+// Countdown Timer
+(function(){
+    const end = new Date();
+    end.setHours(end.getHours() + 8, 45, 0, 0);
+    function update() {
+        const diff = end - new Date();
+        if (diff <= 0) { end.setHours(end.getHours() + 24); return; }
+        const h = Math.floor(diff / 3600000);
+        const m = Math.floor((diff % 3600000) / 60000);
+        const s = Math.floor((diff % 60000) / 1000);
+        document.getElementById('cd-h').textContent = String(h).padStart(2, '0');
+        document.getElementById('cd-m').textContent = String(m).padStart(2, '0');
+        document.getElementById('cd-s').textContent = String(s).padStart(2, '0');
+    }
+    update();
+    setInterval(update, 1000);
+})();
+
+// Mobile Menu
+function toggleMenu() {
+    const toggle = document.getElementById('menuToggle');
+    const menu = document.getElementById('mobileMenu');
+    const backdrop = document.getElementById('mobileBackdrop');
+    const isOpen = menu.classList.contains('open');
+    toggle.classList.toggle('active', !isOpen);
+    menu.classList.toggle('open', !isOpen);
+    backdrop.classList.toggle('open', !isOpen);
+    document.body.style.overflow = !isOpen ? 'hidden' : '';
+}
+
+// Sticky header shadow
+window.addEventListener('scroll', function() {
+    document.getElementById('header').classList.toggle('scrolled', window.scrollY > 10);
+    document.getElementById('backTop').classList.toggle('visible', window.scrollY > 500);
+});
+
+// Scroll Reveal
+const observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+        }
+    });
+}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+document.querySelectorAll('.sr').forEach(function(el) { observer.observe(el); });
+
+// Filter Tabs
+document.querySelectorAll('.filter-tab').forEach(function(tab) {
+    tab.addEventListener('click', function() {
+        const filter = this.dataset.filter;
+        document.querySelectorAll('.filter-tab').forEach(function(t) { t.classList.remove('active'); });
+        this.classList.add('active');
+        document.querySelectorAll('#productGrid .p-card').forEach(function(card) {
+            card.style.display = (filter === 'all' || card.dataset.category === filter) ? '' : 'none';
+        });
+    });
+});
+
+// Category pills
+document.querySelectorAll('.cat-pill').forEach(function(pill) {
+    pill.addEventListener('click', function() {
+        document.querySelectorAll('.cat-pill').forEach(function(p) { p.classList.remove('active'); });
+        this.classList.add('active');
+    });
+});
+
+// Search
+document.getElementById('searchInput').addEventListener('input', function(e) {
+    const q = e.target.value.toLowerCase();
+    document.querySelectorAll('.p-card').forEach(function(card) {
+        const name = card.querySelector('.p-name').textContent.toLowerCase();
+        card.style.display = name.includes(q) ? '' : 'none';
+    });
+});
+
+// Escape key
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+        const menu = document.getElementById('mobileMenu');
+        if (menu.classList.contains('open')) toggleMenu();
+    }
+});
+
+// Close mobile menu links
+document.querySelectorAll('.mobile-link').forEach(function(link) {
+    link.addEventListener('click', function() {
+        if (document.getElementById('mobileMenu').classList.contains('open')) toggleMenu();
+    });
+});
+</script>
+</body>
+</html>
